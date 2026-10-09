@@ -1,63 +1,385 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LumiDoku – Privacy Policy</title>
+<title>Privacy Policy - LumiDoku</title>
+<meta name="description" content="Privacy policy for LumiDoku, a cozy logic puzzle game by SillyDev. No accounts; anonymous usage analytics you can turn off.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://silly77.github.io/bloomdoku/">
+
+<!--
+  Deliberately self-contained: no web fonts, no CDN, no scripts.
+
+  A privacy policy that loads a Google font sends the reader's IP address to
+  Google before they have finished reading the sentence promising it will not.
+  System fonts avoid that, and load instantly on any connection.
+-->
 <style>
-  :root { --ink: #2B2238; --soft: #5D5470; --accent: #6A3FD8; --bg: #FBF8F3; --card: #FFFFFF; }
-  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.65 -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
-  main { max-width: 760px; margin: 0 auto; padding: 32px 18px 64px; }
-  .card { background: var(--card); border-radius: 18px; padding: 28px 24px; box-shadow: 0 6px 24px rgba(60, 30, 110, 0.08); }
-  h1 { margin: 0 0 4px; font-size: 30px; color: var(--accent); }
-  h2 { margin: 28px 0 6px; font-size: 19px; }
-  p, li { color: var(--soft); }
-  .updated { margin: 0 0 18px; font-size: 14px; color: var(--soft); }
-  a { color: var(--accent); }
+  :root {
+    --bg: #FAF6EC;
+    --surface: #FFFFFF;
+    --ink: #1E2D24;
+    --muted: #41594A;
+    --accent: #9C5D0C;
+    --accent-soft: #FBEBCB;
+    --border: #E2DCCB;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #16201B;
+      --surface: #1E2B24;
+      --ink: #EFEADC;
+      --muted: #AFC0B2;
+      --accent: #E8B15C;
+      --accent-soft: #2E2A1E;
+      --border: #32423A;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #16201B;
+    --surface: #1E2B24;
+    --ink: #EFEADC;
+    --muted: #AFC0B2;
+    --accent: #E8B15C;
+    --accent-soft: #2E2A1E;
+    --border: #32423A;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .wrap {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 56px 16px 96px;
+  }
+
+  header { margin-bottom: 40px; }
+
+  h1 {
+    font-size: 2.1rem;
+    line-height: 1.2;
+    margin: 0 0 6px;
+    letter-spacing: -0.015em;
+  }
+
+  .tagline {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0 0 14px;
+  }
+
+  .dates {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 1.35rem;
+    margin: 44px 0 12px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    font-size: 1.06rem;
+    margin: 28px 0 8px;
+  }
+
+  p { margin: 0 0 14px; }
+  ul { margin: 0 0 16px; padding-left: 22px; }
+  li { margin-bottom: 8px; }
+
+  a { color: var(--accent); overflow-wrap: anywhere; }
+
+  strong { font-weight: 700; }
+
+  .summary {
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: 18px;
+    padding: 20px 22px 6px;
+    margin: 0 0 8px;
+  }
+
+  .summary h2 {
+    border-top: 0;
+    padding-top: 0;
+    margin-top: 0;
+    font-size: 1.15rem;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 18px;
+    font-size: 0.95rem;
+  }
+
+  th, td {
+    text-align: left;
+    vertical-align: top;
+    padding: 11px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  th {
+    background: var(--accent-soft);
+    color: var(--ink);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  td:first-child { font-weight: 600; white-space: nowrap; }
+
+  /* The permissions table is the one place that can overflow a phone. */
+  .scroller { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  footer {
+    margin-top: 52px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.93rem;
+  }
+
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    .wrap { padding: 36px 16px 72px; }
+    h1 { font-size: 1.7rem; }
+    td:first-child { white-space: normal; }
+  }
 </style>
 </head>
 <body>
-<main>
-<div class="card">
-  <h1>LumiDoku – Privacy Policy</h1>
-  <p class="updated">Last updated: 4 October 2026</p>
+<div class="wrap">
 
-  <p>LumiDoku ("the game", "we") is a logic puzzle game for Android. This policy explains what information the game handles, why, and the choices you have. In short: <strong>we do not ask for, collect or sell your personal information.</strong> The game works without an account, and your progress stays on your device.</p>
+<header>
+  <p class="tagline">LumiDoku</p>
+  <h1>Privacy Policy</h1>
+  <p class="dates">Effective 19&nbsp;September&nbsp;2026 &middot; Last updated 9&nbsp;October&nbsp;2026</p>
+</header>
 
-  <h2>1. Information stored on your device</h2>
-  <p>Your game progress – levels, puzzles solved, streaks, badges, settings, and whether you bought "Remove Ads" – is saved only on your phone. It is never sent to us. Uninstalling the game, or using <em>Settings → Reset All Game Data</em>, deletes it.</p>
+<p>LumiDoku (&ldquo;the app&rdquo;) is a puzzle game developed by <strong>SillyDev</strong>
+(&ldquo;we&rdquo;, &ldquo;us&rdquo;). This policy explains exactly what the app does with
+data. It is written to be read, not to be skimmed past.</p>
 
-  <h2>2. Advertising (Google AdMob)</h2>
-  <p>The game is free and shows optional ads through Google AdMob – mostly rewarded ads that you choose to watch for a bonus. To show and measure ads, Google may collect information such as your device's advertising ID, IP address, device type and how you interact with ads. This is collected by Google, not by us, and is governed by <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>. You can learn how Google uses this information at <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites or apps that use its services</a>.</p>
-  <p><strong>Your consent:</strong> if you are in the European Economic Area, the United Kingdom or Switzerland, the game asks for your consent before personalised ads are shown, using Google's consent tool. You can change your choice at any time in <em>Settings → Advertising choices</em>. You can also reset or delete your advertising ID, or opt out of personalised ads, in your Android device settings (<em>Settings → Google → Ads</em>).</p>
-
-  <h2>3. In-app purchase (Google Play)</h2>
-  <p>"Remove Ads" is a one-time purchase handled entirely by Google Play. We never see or store your payment details. The game only receives a confirmation from Google Play that the purchase was made, so it can turn ads off and restore your purchase if you reinstall.</p>
-
-  <h2>4. Error reports</h2>
-  <p>If something goes wrong, the game keeps a short error log on your device (the error message and the screens leading up to it – no personal data). It never leaves your phone automatically. You can choose to send it to us with <em>Settings → Report a problem</em>, which opens your phone's share menu so you decide where it goes. Google Play may also provide us with anonymous crash and performance statistics through its Android vitals service.</p>
-
-  <h2>5. Analytics</h2>
-  <p>The game does not currently use any third-party analytics service. If this changes, this policy will be updated first, and the game's <em>Share anonymous data</em> setting lets you turn it off.</p>
-
-  <h2>6. Notifications</h2>
-  <p>If you allow notifications, the game can send you gentle local reminders (for example, about the Daily Challenge). They are scheduled on your device; no data is sent to a server. You can turn them off in the game's settings or in Android settings.</p>
-
-  <h2>7. Sharing</h2>
-  <p>When you share a result or a challenge code, the game opens your phone's share menu. What you share, and with whom, is entirely your choice.</p>
-
-  <h2>8. Children</h2>
-  <p>LumiDoku is intended for a general audience aged 13 and over and is not directed at children under 13. We do not knowingly collect personal information from children.</p>
-
-  <h2>9. Your rights</h2>
-  <p>Because we do not collect personal information ourselves, there is nothing about you stored on our side to access, correct or delete. For data collected by Google for advertising, please use the controls described in section 2 or contact Google.</p>
-
-  <h2>10. Changes to this policy</h2>
-  <p>We may update this policy as the game changes. The date at the top shows the latest version.</p>
-
-  <h2>11. Contact</h2>
-  <p>If you have any questions about this policy, please contact us at: <strong>sohailahmad113377@gmail.com</strong></p>
+<div class="summary">
+  <h2>The short version</h2>
+  <ul>
+    <li><strong>We do not have servers, and we do not have your data.</strong> Everything
+      the app remembers &mdash; your progress, your streaks, your settings, the spirits you
+      have found &mdash; is stored on your own device and never sent to us.</li>
+    <li><strong>We do not ask for your name, email, phone number or location.</strong>
+      There is no account to create and nothing to sign in to.</li>
+    <li><strong>We show advertisements.</strong> Google AdMob serves these, and Google
+      collects data to do it. This is described in full below.</li>
+    <li><strong>We measure how the game is played, anonymously.</strong> Google Analytics for
+      Firebase tells us things like which levels people finish and where they get stuck, so we
+      can make the game better. It is not linked to your name or used for advertising, and you
+      can switch it off in Settings &rarr; &ldquo;Share anonymous data&rdquo;.</li>
+    <li><strong>Uninstalling the app deletes everything it stored.</strong></li>
+  </ul>
 </div>
-</main>
+
+<h2>Information stored on your device</h2>
+<p>The app saves the following locally, using your device&rsquo;s own app storage:</p>
+<ul>
+  <li>Puzzle progress and which groves you have completed</li>
+  <li>Your Daily Challenge history and streak</li>
+  <li>Hint and reveal balances, and your spirit collection</li>
+  <li>Settings such as sound, haptics and reduced motion</li>
+  <li>Whether you have completed the tutorial</li>
+</ul>
+<p><strong>This information never leaves your device.</strong> We cannot see it, we do not
+receive a copy of it, and we could not retrieve it if you asked us to. It is removed when
+you uninstall the app or clear its data from Android Settings.</p>
+
+<h2>Information collected by advertising</h2>
+<p>LumiDoku shows <strong>rewarded advertisements</strong> &mdash; short videos you choose
+to watch in exchange for hints, reveals or extra attempts &mdash; and an occasional video
+between levels that can always be skipped. We do not show banner ads, and we do not show
+ads that interrupt a puzzle in progress.</p>
+
+<p>These are served by <strong>Google AdMob</strong>. To serve them, Google may collect and
+process:</p>
+<ul>
+  <li>Your device&rsquo;s <strong>Advertising ID</strong> (a resettable identifier)</li>
+  <li>Your device&rsquo;s <strong>IP address</strong>, and from it an approximate, coarse location</li>
+  <li>Device information such as model, operating system version and language</li>
+  <li>Information about ads shown to you, and whether you interacted with them</li>
+</ul>
+
+<p>This processing is carried out by Google, not by us. We never receive this information;
+we receive only aggregate reporting about how many ads were shown.</p>
+
+<p>Google&rsquo;s handling of this data is governed by its own policies:</p>
+<ul>
+  <li><a href="https://policies.google.com/technologies/partner-sites">How Google uses
+    information from sites or apps that use our services</a></li>
+  <li><a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
+</ul>
+
+<h3>Controlling advertising on your device</h3>
+<p>You can limit or reset advertising identification at any time:</p>
+<ul>
+  <li><strong>Android:</strong> Settings &rarr; Privacy &rarr; Ads &rarr;
+    <em>Delete advertising ID</em> or <em>Reset advertising ID</em></li>
+</ul>
+<p>Resetting the ID prevents past ad activity being linked to future activity. Deleting it
+stops personalised advertising entirely. The app continues to work either way.</p>
+
+<h3>Consent in the European Economic Area and the UK</h3>
+<p>Where the law requires consent before personalised advertising or non-essential
+tracking, the app presents Google&rsquo;s consent form on first launch and your choice is
+respected for all subsequent ad requests. You can change your choice later from the
+app&rsquo;s Settings screen.</p>
+<p>If you decline personalised advertising, the app still works and you can still earn
+rewards by watching ads &mdash; the ads shown are simply non-personalised.</p>
+
+<h2>Anonymous usage analytics</h2>
+<p>The app uses <strong>Google Analytics for Firebase</strong> to understand how the game is
+played: for example that a level was started or finished, that a hint was used, or that the
+Daily Challenge was completed, together with basic device information (model, operating
+system version, app version and approximate country derived from the network). Firebase
+assigns a random app-instance identifier to group these events; it is not your name, email
+or advertising identifier, and we never link it to one.</p>
+<ul>
+  <li>The data is used only to improve the game, never to personalise advertising.</li>
+  <li>You can turn it off at any time in <strong>Settings &rarr; Share anonymous data</strong>;
+    collection stops immediately.</li>
+  <li>Google processes this data under the
+    <a href="https://firebase.google.com/support/privacy">Firebase privacy information</a> and
+    the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>. Analytics data is
+    retained for up to 14 months.</li>
+</ul>
+
+<h2>What we do not collect</h2>
+<p>We want to be specific about this, because many privacy policies describe practices
+their app does not actually have.</p>
+<ul>
+  <li><strong>No crash reporting.</strong> No crash or diagnostic data is sent to us or to
+    any third party.</li>
+  <li><strong>No account, no profile, no email address, no phone number.</strong></li>
+  <li><strong>No precise location.</strong> The app never requests location permission.</li>
+  <li><strong>No contacts, calendar, photos, microphone, camera or health data.</strong>
+    The app requests none of these permissions and cannot access them.</li>
+  <li><strong>We do not sell your personal information</strong>, and we do not share it for
+    cross-context behavioural advertising beyond the AdMob processing described above.</li>
+</ul>
+
+<h2>Permissions the app requests, and why</h2>
+<div class="scroller">
+<table>
+  <thead>
+    <tr><th>Permission</th><th>Why</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Internet</td><td>Required to load advertisements. The puzzles themselves work fully offline.</td></tr>
+    <tr><td>Notifications</td><td>Only to send an optional daily reminder to play. Scheduled on your device; no notification is sent from a server. You can disable this in the app or in Android settings.</td></tr>
+    <tr><td>Vibrate</td><td>Haptic feedback when placing a piece. Can be turned off in Settings.</td></tr>
+    <tr><td>Modify audio settings</td><td>Required by the audio library used for sound effects.</td></tr>
+    <tr><td>Run at startup</td><td>Allows a scheduled daily reminder to survive a device restart.</td></tr>
+    <tr><td>Storage</td><td>Included by a system library used for temporary files. The app writes only to its own private storage, and does not read or write your photo library or any of your files.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>Sharing a result</h3>
+<p>If you choose to share a result card, the image is created in the app&rsquo;s own private
+storage and handed to Android&rsquo;s share sheet. You choose where it goes. The app does not
+access your photo library and does not upload the image anywhere.</p>
+
+<h2>Purchases</h2>
+<p>LumiDoku may offer a one-time purchase to remove advertisements. If you make a
+purchase, it is processed entirely by <strong>Google Play</strong>. We never see or receive
+your payment card, billing address or any financial information. Google tells the app only
+whether the purchase is active.</p>
+<p>Google Play&rsquo;s handling of payment data is governed by the Google Privacy Policy
+linked above.</p>
+
+<h2>Children</h2>
+<p>LumiDoku is a general-audience game. It is <strong>not directed to children under
+13</strong>, and within the European Economic Area and the United Kingdom it is not directed
+to children under 16.</p>
+<p>We do not knowingly collect personal information from children. Because the app collects
+no personal information from anyone and has no account system, there is no profile for us to
+hold or delete. If you believe a child has provided personal information through the app,
+contact us at the address below and we will act on it.</p>
+
+<h2>Your rights</h2>
+<p>Because we hold no personal data about you on any system we control, there is no file for
+us to retrieve, correct or erase. You can delete everything the app has stored by
+uninstalling it or clearing its data.</p>
+<p>For the data that <strong>Google</strong> processes for advertising, you can exercise your
+rights directly with Google using the links in the advertising section above, and through
+your device&rsquo;s advertising settings.</p>
+
+<h3>If you are in the European Economic Area or the United Kingdom (GDPR)</h3>
+<p>You have the right to access, rectify, erase, restrict and object to processing of your
+personal data, and the right to data portability. Where we rely on consent &mdash; which for
+this app means advertising consent &mdash; you may withdraw it at any time without affecting
+anything done before you withdrew it.</p>
+<p>You also have the right to lodge a complaint with your local data protection authority.</p>
+
+<h3>If you are a California resident (CCPA/CPRA)</h3>
+<p>You have the right to know what personal information is collected, to delete it, to
+correct it, to opt out of its sale or sharing, and not to be discriminated against for
+exercising these rights.</p>
+<p><strong>We do not sell personal information.</strong> The advertising described above may
+constitute &ldquo;sharing&rdquo; for cross-context behavioural advertising under the CPRA;
+you can opt out using your device&rsquo;s advertising settings or, in regions where it is
+presented, the in-app consent form.</p>
+<p>To make any request, contact us at the address below.</p>
+
+<h2>Data retention</h2>
+<ul>
+  <li><strong>On your device:</strong> kept until you uninstall the app or clear its data.</li>
+  <li><strong>With us:</strong> nothing. We operate no servers and store no user data.</li>
+  <li><strong>With Google:</strong> governed by Google&rsquo;s retention practices, described
+    in the Google Privacy Policy.</li>
+</ul>
+
+<h2>International transfers</h2>
+<p>We do not transfer your data anywhere, because we do not receive any. Google operates
+globally and may process advertising data outside your country, including outside the EEA,
+using transfer mechanisms described in its own policy.</p>
+
+<h2>Changes to this policy</h2>
+<p>If this policy changes, we will update the effective date at the top and post the revised
+version at this address. If a change materially affects how data is handled, we will seek
+your consent where the law requires it.</p>
+
+<h2>Contact</h2>
+<p>Questions about this policy or about privacy in LumiDoku:</p>
+<p>
+  <strong>SillyDev</strong><br>
+  Email: <a href="mailto:sohailahmad113377@gmail.com">sohailahmad113377@gmail.com</a><br>
+  Mansehra, Pakistan
+</p>
+
+<footer>
+  &copy; 2026 SillyDev &middot; LumiDoku
+</footer>
+
+</div>
 </body>
 </html>
